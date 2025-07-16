@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class PalindromeCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+
+        // Step 1: Convert string to character array manually
+        char[] strArray = new char[100];  // assuming max 100 chars
+        int length = 0;
+
+        // Manually store characters and count length
+        for (int i = 0; i < str.length(); i++) {
+            strArray[i] = str.charAt(i); // using charAt only for input reading
+            length++;
+        }
+
+        // Step 2: Check if it's a palindrome
+        boolean isPalindrome = true;
+        for (int i = 0; i < length / 2; i++) {
+            if (strArray[i] != strArray[length - 1 - i]) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Step 3: Display result
+        if (isPalindrome) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
